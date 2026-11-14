@@ -9,7 +9,7 @@ description = "Auto-generate production-ready README.md files from pure static c
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "ZeroRot", email = "hello@zerorot.com" }]
+authors = [{ name = "kesavan012", email = "hello@zerorot.com" }]
 keywords = ["readme", "documentation", "static-analysis", "cli", "devtools"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -42,9 +42,9 @@ toml = ["tomli>=2.0; python_version<'3.11'"]
 zerorot = "zerorot.cli:main"
 
 [project.urls]
-Homepage = "https://zerorot.com"
-Repository = "https://github.com/zerorot/zerorot"
-"Bug Tracker" = "https://github.com/zerorot/zerorot/issues"
+Homepage = "https://github.com/kesavan012/Zerorot"
+Repository = "https://github.com/kesavan012/Zerorot"
+"Bug Tracker" = "https://github.com/kesavan012/Zerorot/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
