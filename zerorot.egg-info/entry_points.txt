@@ -1,0 +1,2 @@
+[console_scripts]
+zerorot = zerorot.cli:main

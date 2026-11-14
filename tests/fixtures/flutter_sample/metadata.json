@@ -1,0 +1,8 @@
+{
+  "name": "GeoSight",
+  "title": "GeoSight Total Station App",
+  "description": "A Flutter + React companion app for total station surveying. Features a digital theodolite, stakeout navigation, traverse survey computation, physical sensor calibration via IMU/magnetometer, AR camera overlay for field guidance, and SQLite-backed offline survey session management with CSV and DXF export.",
+  "version": "1.0.0",
+  "platform": "Android / iOS (Flutter)",
+  "category": "Surveying & GIS"
+}

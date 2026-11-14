@@ -1,0 +1,91 @@
+# {{ project_name }}
+{% if version %}**v{{ version }}**{% endif %}{% if tech_stack %} · {% for tech in tech_stack %}![](https://img.shields.io/badge/{{ tech | replace(' ', '_') | replace('.', '') | replace('/', '_') }}-informational?style=flat){% if not loop.last %} {% endif %}{% endfor %}{% endif %}
+
+> {{ description }}
+
+---
+
+## 🏗️ Architecture & Flow
+
+```mermaid
+{{ mermaid_diagram }}
+```
+
+---
+{% if has_features %}
+
+## ✨ Features
+
+{% for feature in features %}
+- {{ feature }}
+{% endfor %}
+
+---
+{% endif %}
+
+## ⚙️ Environment & Configuration
+
+{% if has_env_vars %}
+Copy `.env.example` to `.env` and fill in the values below before running.
+
+| Variable Name | Type | Description | Default / Required |
+|---|---|---|---|
+{% for var in env_vars %}
+| `{{ var.name }}` | `{{ var.type }}` | {{ var.description }} | {% if var.default %}`{{ var.default }}`{% else %}— / **Required**{% endif %} |
+{% endfor %}
+{% else %}
+This project does not require environment variable configuration.
+{% endif %}
+
+---
+
+## 🚀 Quick Start & Execution
+
+{% if platform %}
+> **Platform:** {{ platform }}
+{% endif %}
+{% if lang == 'python' and package_manager in ['pip'] %}
+> **Prerequisites:** Python ≥ 3.9
+{% elif lang in ['javascript', 'typescript'] %}
+> **Prerequisites:** Node.js ≥ 18 LTS
+{% elif lang == 'go' %}
+> **Prerequisites:** Go ≥ 1.21
+{% elif lang == 'rust' %}
+> **Prerequisites:** Rust (stable toolchain)
+{% elif lang == 'dart' %}
+> **Prerequisites:** Flutter SDK ≥ 3.0
+{% elif lang == 'java' %}
+> **Prerequisites:** JDK ≥ 17
+{% endif %}
+{% if has_docker %}
+> **Optional:** Docker & Docker Compose (for infrastructure services)
+{% endif %}
+
+{% for step in quickstart_steps %}
+### {{ loop.index }}. {{ step.title }}
+
+```bash
+{% for cmd in step.commands %}{{ cmd }}
+{% endfor %}```
+
+{% endfor %}
+
+---
+
+## 📁 Component Directory Breakdown
+
+```
+{{ tree_str }}
+```
+
+{% if components %}
+### Key Components
+
+{% for comp in components %}
+- **`{{ comp.path }}`** — {{ comp.description }}
+{% endfor %}
+{% endif %}
+
+---
+
+[📖 Documentation generated beautifully by ZeroRot](https://zerorot.com)

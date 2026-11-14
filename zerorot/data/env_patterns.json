@@ -1,0 +1,148 @@
+{
+  "patterns": {
+    "javascript": [
+      {
+        "regex": "process\\.env\\.([A-Z][A-Z0-9_]*)",
+        "group": 1,
+        "default_regex": "process\\.env\\.{name}\\s*(?:\\|\\|\\s*['\"]([^'\"]*)['\"]|\\?\\?\\s*['\"]([^'\"]*)['\"])"
+      }
+    ],
+    "typescript": [
+      {
+        "regex": "process\\.env\\.([A-Z][A-Z0-9_]*)",
+        "group": 1,
+        "default_regex": "process\\.env\\.{name}\\s*(?:\\|\\|\\s*['\"]([^'\"]*)['\"]|\\?\\?\\s*['\"]([^'\"]*)['\"])"
+      }
+    ],
+    "python": [
+      {
+        "regex": "os\\.getenv\\(['\"]([A-Z][A-Z0-9_]*)['\"](?:,\\s*['\"]([^'\"]*)['\"])?\\)",
+        "group": 1,
+        "default_group": 2
+      },
+      {
+        "regex": "os\\.environ\\.get\\(['\"]([A-Z][A-Z0-9_]*)['\"](?:,\\s*['\"]([^'\"]*)['\"])?\\)",
+        "group": 1,
+        "default_group": 2
+      },
+      {
+        "regex": "os\\.environ\\[['\"]([A-Z][A-Z0-9_]*)['\"]\\]",
+        "group": 1
+      },
+      {
+        "regex": "environ\\[['\"]([A-Z][A-Z0-9_]*)['\"]\\]",
+        "group": 1
+      }
+    ],
+    "go": [
+      {
+        "regex": "os\\.Getenv\\(['\"]([A-Z][A-Z0-9_]*)['\"]\\)",
+        "group": 1
+      },
+      {
+        "regex": "os\\.LookupEnv\\(['\"]([A-Z][A-Z0-9_]*)['\"]\\)",
+        "group": 1
+      }
+    ],
+    "rust": [
+      {
+        "regex": "env::var\\(['\"]([A-Z][A-Z0-9_]*)['\"]\\)",
+        "group": 1
+      },
+      {
+        "regex": "std::env::var\\(['\"]([A-Z][A-Z0-9_]*)['\"]\\)",
+        "group": 1
+      }
+    ],
+    "java": [
+      {
+        "regex": "System\\.getenv\\(['\"]([A-Z][A-Z0-9_]*)['\"]\\)",
+        "group": 1
+      }
+    ],
+    "ruby": [
+      {
+        "regex": "ENV\\[['\"]([A-Z][A-Z0-9_]*)['\"]\\]",
+        "group": 1
+      },
+      {
+        "regex": "ENV\\.fetch\\(['\"]([A-Z][A-Z0-9_]*)['\"]",
+        "group": 1
+      }
+    ],
+    "php": [
+      {
+        "regex": "\\$_ENV\\[['\"]([A-Z][A-Z0-9_]*)['\"]\\]",
+        "group": 1
+      },
+      {
+        "regex": "getenv\\(['\"]([A-Z][A-Z0-9_]*)['\"]\\)",
+        "group": 1
+      }
+    ],
+    "dotenv": [
+      {
+        "regex": "^([A-Z][A-Z0-9_]*)=(.*)$",
+        "group": 1,
+        "default_group": 2
+      }
+    ]
+  },
+  "type_hints": {
+    "int_keywords": ["PORT", "TIMEOUT", "LIMIT", "SIZE", "COUNT", "MAX", "MIN", "TTL", "RETRY", "WORKERS", "CONCURRENCY", "INTERVAL", "DELAY", "EXPIRES", "EXPIRY", "DAYS", "HOURS", "MINUTES", "SECONDS", "MS"],
+    "bool_keywords": ["ENABLED", "DISABLED", "DEBUG", "VERBOSE", "FORCE", "SSL", "TLS", "SECURE", "HTTPS"],
+    "url_keywords": ["URL", "URI", "HOST", "ENDPOINT", "DSN", "ORIGIN", "DOMAIN", "BASE"],
+    "secret_keywords": ["SECRET", "KEY", "TOKEN", "PASSWORD", "PASS", "PWD", "CREDENTIAL", "CERT", "PRIVATE"]
+  },
+  "description_map": {
+    "PORT": "HTTP server port number",
+    "HOST": "Server bind host address",
+    "NODE_ENV": "Runtime environment mode (development / staging / production)",
+    "APP_ENV": "Application environment mode",
+    "DEBUG": "Enable debug mode with verbose logging",
+    "DATABASE_URL": "Primary database connection string (DSN format)",
+    "DB_HOST": "Database server hostname",
+    "DB_PORT": "Database server port",
+    "DB_NAME": "Database name",
+    "DB_USER": "Database authentication username",
+    "DB_PASSWORD": "Database authentication password",
+    "REDIS_URL": "Redis connection URI",
+    "REDIS_HOST": "Redis server hostname",
+    "REDIS_PORT": "Redis server port",
+    "REDIS_PASSWORD": "Redis authentication password",
+    "SECRET_KEY": "Application secret key used for cryptographic signing",
+    "JWT_SECRET": "JSON Web Token signing secret",
+    "JWT_EXPIRY": "JWT access token expiration duration",
+    "JWT_EXPIRE_MINUTES": "JWT access token expiration in minutes",
+    "API_KEY": "API key for authenticating external service requests",
+    "CORS_ORIGINS": "Comma-separated list of allowed CORS origins",
+    "ALLOWED_HOSTS": "Comma-separated list of allowed HTTP host headers",
+    "LOG_LEVEL": "Logging verbosity level (DEBUG / INFO / WARNING / ERROR)",
+    "SENTRY_DSN": "Sentry error tracking DSN",
+    "AWS_ACCESS_KEY_ID": "AWS IAM access key ID",
+    "AWS_SECRET_ACCESS_KEY": "AWS IAM secret access key",
+    "AWS_REGION": "AWS region identifier",
+    "AWS_S3_BUCKET": "S3 bucket name for object storage",
+    "SMTP_HOST": "SMTP mail server hostname",
+    "SMTP_PORT": "SMTP server port",
+    "SMTP_USER": "SMTP authentication username",
+    "SMTP_PASSWORD": "SMTP authentication password",
+    "EMAIL_FROM": "Default sender email address",
+    "STRIPE_SECRET_KEY": "Stripe secret API key for payment processing",
+    "STRIPE_WEBHOOK_SECRET": "Stripe webhook endpoint signing secret",
+    "MONGODB_URI": "MongoDB connection URI",
+    "MONGO_URL": "MongoDB connection URL",
+    "CELERY_BROKER_URL": "Celery message broker connection URL",
+    "CELERY_RESULT_BACKEND": "Celery task result storage backend URL"
+  },
+  "source_extensions": {
+    "javascript": [".js", ".mjs", ".cjs"],
+    "typescript": [".ts", ".tsx"],
+    "python": [".py"],
+    "go": [".go"],
+    "rust": [".rs"],
+    "java": [".java", ".kt"],
+    "ruby": [".rb"],
+    "php": [".php"]
+  }
+}
